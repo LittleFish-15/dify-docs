@@ -295,6 +295,7 @@ dockerイメージまたはdocker-composeによる起動時にのみ有効です
     * `oceanbase`
     * `tablestore`
     * `lindorm`
+    * `tencent`
     * `opengauss`
 
 *   WEAVIATE\_ENDPOINT
@@ -472,6 +473,38 @@ dockerイメージまたはdocker-composeによる起動時にのみ有効です
 
     LINDORM アクセスパスワード
 
+*   TENCENT\_VECTOR\_DB\_URL
+
+    腾讯云ベクトルデータベースのアクセスアドレスは、[コンソール](https://console.cloud.tencent.com/vdb)から取得できます。
+
+*   TENCENT\_VECTOR\_DB\_API_KEY
+    ベクトルデータベースサーバーのAPIキー（パスワード）は、認証を行うために使用されます。[キー管理](https://cloud.tencent.com/document/product/1709/95108)。
+
+*   TENCENT\_VECTOR\_DB\_USERNAME
+
+    ベクトルデータベースのアカウントは、デフォルトでrootです。[アカウントと権限管理](https://cloud.tencent.com/document/product/1709/115833)。
+
+*   TENCENT\_VECTOR\_DB\_TIMEOUT
+
+    デフォルトのリクエストタイムアウト時間を設定します。
+
+*   TENCENT\_VECTOR\_DB\_DATABASE
+
+    データベース（Database）とは、データ構造に基づいてデータを組織化し、保存および管理する倉庫であり、一つのインスタンスで複数のDatabaseを作成することができます。
+    [新しいDatabaseを作成します](https://cloud.tencent.com/document/product/1709/95822)。
+
+*   TENCENT\_VECTOR\_DB\_SHARD
+
+    シャード数を指定します。
+
+*   TENCENT\_VECTOR\_DB\_REPLICAS
+
+    レプリカ数を指定します。
+
+*   TENCENT\_VECTOR\_DB\_ENABLE\_HYBRID\_SEARCH
+
+    HybridSearchを有効にするかどうかを指定します。[スパースベクトル文書](https://cloud.tencent.com/document/product/1709/110110)。
+
 *   OPENGAUSS\_HOST
 
     openGaussベクトルデータベースのホスト名またはIPアドレス。
@@ -531,6 +564,10 @@ dockerイメージまたはdocker-composeによる起動時にのみ有効です
     ETL\_TYPEがUnstructuredの場合、Unstructured APIパスの設定が必要です。
 
     例：`http://unstructured:8000/general/v0/general`
+
+* TOP_K_MAX_VALUE
+
+    RAG の最大の上位 k 値。デフォルトは 10。
 
 #### マルチモーダルモデル設定
 
@@ -706,7 +743,7 @@ API サービスによってインターフェース ID 検証にのみ使用さ
 
 ### 文書チャンク長の設定
 
-#### MAXIMUM_CHUNK_TOKEN_LENGTH 
+#### INDEXING_MAX_SEGMENTATION_TOKENS_LENGTH 
 
 文書チャンク長の設定。長文処理時のテキストセグメントサイズを制御するために使用。デフォルト値：500。最大値：4000。
 

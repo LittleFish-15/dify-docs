@@ -295,6 +295,7 @@ Used to store uploaded data set files, team/tenant encryption keys, and other fi
     - `oceanbase`
     - `tablestore`
     - `lindorm`
+    - `tencent`
     - `opengauss`
 
 - WEAVIATE_ENDPOINT
@@ -479,6 +480,38 @@ Used to store uploaded data set files, team/tenant encryption keys, and other fi
 
   The password of lindorm search engine
 
+- TENCENT\_VECTOR\_DB\_URL
+
+    The access address for Tencent Cloud VectorDB can be obtained from [the console](https://console.cloud.tencent.com/vdb).
+
+- TENCENT\_VECTOR\_DB\_API_KEY
+
+    The API key (password) for the VectorDB server is used for identity authentication. [Key Management](https://cloud.tencent.com/document/product/1709/95108).
+
+- TENCENT\_VECTOR\_DB\_USERNAME
+
+    The vector database account, default 'root'. [Account Management](https://cloud.tencent.com/document/product/1709/115833).
+
+- TENCENT\_VECTOR\_DB\_TIMEOUT
+
+    Set the default request timeout duration.
+
+- TENCENT\_VECTOR\_DB\_DATABASE
+
+    Set up a Database for storing data. [Create Database](https://cloud.tencent.com/document/product/1709/95822)。
+
+- TENCENT\_VECTOR\_DB\_SHARD
+
+    Specify the number of shards.
+
+- TENCENT\_VECTOR\_DB\_REPLICAS
+
+    Specify the number of replicas.
+
+- TENCENT\_VECTOR\_DB\_ENABLE\_HYBRID\_SEARCH
+
+    Specify whether to enable HybridSearch. [Sparse Vector Documentation](https://cloud.tencent.com/document/product/1709/110110)。
+
 - OPENGAUSS_HOST
 
   The hostname or IP address of the openGauss vector database.
@@ -538,6 +571,10 @@ Used to store uploaded data set files, team/tenant encryption keys, and other fi
   Unstructured API path, needs to be configured when ETL_TYPE is Unstructured.
 
   For example: `http://unstructured:8000/general/v0/general`
+
+- TOP_K_MAX_VALUE
+  
+  The maximum top-k value of RAG, default 10.
 
 #### Multi-modal Configuration
 
@@ -717,7 +754,7 @@ Used to set the browser policy for session cookies used for identity verificatio
 
 ### Chunk Length Configuration
 
-#### MAXIMUM_CHUNK_TOKEN_LENGTH 
+#### INDEXING_MAX_SEGMENTATION_TOKENS_LENGTH 
 
 Configuration for document chunk length. It is used to control the size of text segments when processing long documents. Default: 500. Maximum: 4000.
 
